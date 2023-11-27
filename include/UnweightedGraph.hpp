@@ -20,8 +20,6 @@ class UnweightedGraph {
     private:
         int num_vertices;
         int num_edges;
-        const int no_edge_val = std::numeric_limits<int>::min();
-        // std::vector<std::vector<int>> adjacency_matrix;
         LinkedList** adj_list;
 };
 

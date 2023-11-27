@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0) {
+WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0), no_edge_val(std::numeric_limits<int>::min()) {
     adj_matrix = new int*[num_vertices];
 
     for (int i = 0; i < num_vertices; i++) {
