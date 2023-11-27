@@ -1,12 +1,12 @@
-#ifndef GRAPH_H
-#define GRAPH_H
+#ifndef W_GRAPH_H
+#define W_GRAPH_H
 
 #include <vector>
 
-class Graph {
+class WeightedGraph {
     public:
-        Graph(int num_vertices);
-        ~Graph();
+        WeightedGraph(int num_vertices);
+        ~WeightedGraph();
 
         void addEdge(int start, int end, int edge_weight);
         void removeEdge(int start, int end);
@@ -21,7 +21,7 @@ class Graph {
         int num_edges;
         const int no_edge_val = std::numeric_limits<int>::min();
         // std::vector<std::vector<int>> adjacency_matrix;
-        int** adjacency_matrix;
+        int** adj_matrix;
 };
 
 #endif
