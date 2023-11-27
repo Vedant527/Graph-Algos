@@ -1,7 +1,5 @@
 #include "UnweightedGraph.hpp"
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include <vector>
 
 UnweightedGraph::UnweightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0) {
@@ -65,18 +63,4 @@ int UnweightedGraph::getNumVertices() const {
 
 int UnweightedGraph::getNumEdges() const {
     return num_edges;
-}
-
-int main() {
-    UnweightedGraph g = UnweightedGraph(10);
-    unsigned seed = time(0);
-    srand(seed);
-
-    int random_edge_count = rand() % 10;
-    for (int i = 0; i < random_edge_count; i++) {
-        int v1 = rand() % 10;
-        int v2 = rand() % 10;
-        g.addEdge(v1, v2);
-    }
-    g.printUnweightedGraph();
 }

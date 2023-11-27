@@ -1,7 +1,5 @@
 #include "WeightedGraph.hpp"
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include <vector>
 
 WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0) {
@@ -81,18 +79,4 @@ int WeightedGraph::getNumVertices() const {
 
 int WeightedGraph::getNumEdges() const {
     return num_edges;
-}
-
-int main() {
-    WeightedGraph g = WeightedGraph(10);
-    unsigned seed = time(0);
-    srand(seed);
-
-    int random_edge_count = rand() % 10;
-    for (int i = 0; i < random_edge_count; i++) {
-        int v1 = rand() % 10;
-        int v2 = rand() % 10;
-        g.addEdge(v1, v2, rand() % 10);
-    }
-    g.printGraph();
 }

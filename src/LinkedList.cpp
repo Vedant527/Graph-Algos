@@ -1,7 +1,5 @@
 #include "LinkedList.hpp"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 LinkedList::Node::Node(int val) : val(val), next(nullptr), prev(nullptr) {};
 LinkedList::Node::~Node() {};
@@ -112,28 +110,3 @@ void LinkedList::printLinkedList() {
 int LinkedList::getSize() const {
     return size;
 }
-
-// int main() {
-//     LinkedList* ll = new LinkedList();
-//     unsigned seed = time(0);
-//     srand(seed);
-
-//     for (int i = 0; i < 15; i++) {
-//         ll->addToBack(rand() % 10);
-//     }
-//     LinkedList::Node* curr = ll->head;
-//     while (curr) {
-//         printf("%d ", curr->getVal());
-//         curr = curr->getNext();
-//     }
-//     puts("\n");
-//     int del = rand() % 10;
-//     std::cout << del << std::endl;
-//     puts("\n");
-//     ll->remove(del);
-//     curr = ll->head;
-//     while (curr) {
-//         printf("%d ", curr->getVal());
-//         curr = curr->getNext();
-//     }
-// }
