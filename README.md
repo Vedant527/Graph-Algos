@@ -11,7 +11,7 @@ In the future it will include support for: DFS, Ford Fulkerson, Min Cut, and mor
 ## Weighted Graphs
 
 - Representation of weighted graphs using an adjacency matrix.
-- Dijkstra's algorithm for finding the shortest path in weighted graphs.
+- Breadth-First Search (BFS) algorithm for weighted graphs.
 
 ## How to Use
 
