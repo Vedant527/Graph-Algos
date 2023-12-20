@@ -63,3 +63,7 @@ int UnweightedGraph::getNumVertices() const {
 int UnweightedGraph::getNumEdges() const {
     return num_edges;
 }
+
+LinkedList* UnweightedGraph::getNeighbors(int vertex) {
+    return adj_list[vertex];
+}

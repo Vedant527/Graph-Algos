@@ -119,3 +119,14 @@ void LinkedList::printLinkedList() {
 int LinkedList::getSize() const {
     return size;
 }
+
+int LinkedList::find(int vertex) {
+    Node* curr = this->head;
+    while (curr) {
+        if (curr->getVal() == vertex) {
+            return vertex;
+        }
+        curr = curr->getNext();
+    }
+    return 0;
+}

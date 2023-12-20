@@ -3,28 +3,15 @@
 
 #include <vector>
 #include "WeightedGraph.hpp"
-
-// class Dist {
-//     public:
-//         Dist(int path_cost, bool path_exists);
-//         ~Dist();
-
-//         int getPathCost() const;
-//         bool getPathExists() const;
-//         std::vector<int> getPath();
-    
-//     private:
-//         int path_cost;
-//         bool path_exists;
-//         std::vector<int> path;
-// };
+#include "UnweightedGraph.hpp"
 
 class BFS {
     public:
         BFS();
         ~BFS();
 
-        static int runBfs(WeightedGraph graph, int start, int end);
+        int runBfs(WeightedGraph graph, int start, int end);
+        int runBfs(UnweightedGraph graph, int start, int end);
 };
 
 #endif

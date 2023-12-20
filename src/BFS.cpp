@@ -32,3 +32,28 @@ int BFS::runBfs(WeightedGraph graph, int start, int end) {
 
     return 0;
 }
+
+int BFS::runBfs(UnweightedGraph graph, int start, int end) {
+    std::queue<int> queue;
+    std::set<int> visited;
+
+    queue.push(start);
+
+    while(!queue.empty()) {
+        int curr = queue.front();
+        visited.insert(curr);
+        queue.pop();
+
+        if (curr == end) {
+            return 1;
+        }
+        LinkedList* neighbors = graph.getNeighbors(curr);
+        for (int n = 0; n < graph.getNumVertices(); n++) {
+            if (visited.find(n) == visited.end() && neighbors->find(n) > 0) {
+                queue.push(n);
+            }
+        }
+    }
+
+    return 0;
+}

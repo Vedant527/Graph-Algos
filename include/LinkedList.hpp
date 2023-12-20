@@ -30,6 +30,7 @@ class LinkedList {
         Node* addToFront(int val);
         Node* addToBack(int val);
         int getSize() const;
+        int find(int vertex);
 
         Node* head;
         Node* tail;

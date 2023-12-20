@@ -16,6 +16,7 @@ class UnweightedGraph {
 
         int getNumVertices() const;
         int getNumEdges() const;
+        LinkedList* getNeighbors(int vertex);
 
     private:
         int num_vertices;
