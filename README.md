@@ -22,3 +22,13 @@ In the future it will include support for: DFS, Ford Fulkerson, Min Cut, and mor
 
    ```bash
    git clone https://github.com/vedant527/graph-algos.git
+   
+2. Run the following commands to build files
+ 
+   ```bash
+   mkdir build && cmake ..
+
+3. Create and run the executable
+ 
+   ```bash
+   make && ./out
