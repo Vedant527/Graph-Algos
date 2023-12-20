@@ -1,6 +1,6 @@
-#include "UnweightedGraph.hpp"
-#include "BFS.hpp"
 #include <iostream>
+#include "UnweightedGraph.hpp"
+#include "GraphAgent.hpp"
 
 int main() {
     UnweightedGraph g = UnweightedGraph(10);
@@ -14,11 +14,18 @@ int main() {
         g.addEdge(v1, v2);
     }
     g.printGraph();
-    BFS b;
+    GraphAgent b;
     int x = b.runBfs(g, 0, 3);
+    int y = b.runDfs(g, 0, 3);
     if (x == 1) { 
-        std::cout << "Found path!" << std::endl;
+        std::cout << "BFS found path!" << std::endl;
     } else {
-        std::cout << "Path not found!" << std::endl;
+        std::cout << "BFS path not found!" << std::endl;
+    }
+
+    if (y == 1) { 
+        std::cout << "DFS found path!" << std::endl;
+    } else {
+        std::cout << "DFS path not found!" << std::endl;
     }
 }
