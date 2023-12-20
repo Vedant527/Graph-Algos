@@ -26,7 +26,7 @@ In the future it will include support for: DFS, Ford Fulkerson, Min Cut, and mor
 2. Run the following commands to build files
  
    ```bash
-   mkdir build && cmake ..
+   mkdir build && cd build/ && cmake ..
 
 3. Create and run the executable
  
