@@ -12,7 +12,7 @@ class UnweightedGraph {
         void addEdge(int start, int end);
         void removeEdge(int start, int end);
         void addVertex(int new_vertices);
-        void printUnweightedGraph();
+        void printGraph();
 
         int getNumVertices() const;
         int getNumEdges() const;

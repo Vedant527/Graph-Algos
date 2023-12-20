@@ -56,7 +56,7 @@ void WeightedGraph::addVertex(int new_vertices) {
 void WeightedGraph::printGraph() {
     std::cout << "   ";
     for (int j = 0; j < num_vertices; j++) {
-        std::cout << " " << j;
+        std::cout << "  " << j;
     }
     std::cout << std::endl;
 
@@ -67,7 +67,7 @@ void WeightedGraph::printGraph() {
             if (adj_matrix[i][j] != no_edge_val) {
                 std::cout << "  " << adj_matrix[i][j];
             } else 
-                std::cout << " N";
+                std::cout << "  N";
         }
         std::cout << std::endl;
     }
@@ -79,4 +79,12 @@ int WeightedGraph::getNumVertices() const {
 
 int WeightedGraph::getNumEdges() const {
     return num_edges;
+}
+
+int WeightedGraph::getNoEdgeVal() const {
+    return no_edge_val;
+}
+
+int* WeightedGraph::getNeighbors(int vertex) {
+    return adj_matrix[vertex];
 }

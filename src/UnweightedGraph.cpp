@@ -49,8 +49,7 @@ void UnweightedGraph::addVertex(int new_vertices) {
     delete[] old_adj_list;
 }
 
-void UnweightedGraph::printUnweightedGraph() {
-    // Print the array with row indices
+void UnweightedGraph::printGraph() {
     for (int i = 0; i < num_vertices; i++) {
         std::cout << i << ": ";
         adj_list[i]->printLinkedList();

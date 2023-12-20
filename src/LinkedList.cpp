@@ -25,7 +25,16 @@ int LinkedList::Node::getVal() {
 }
 
 LinkedList::LinkedList() : head(nullptr), tail(nullptr), size(0) {};
-LinkedList::~LinkedList() {};
+
+LinkedList::~LinkedList() {
+    Node* curr = this->head;
+    
+    while (curr) {
+        Node* next = curr->getNext();
+        delete curr;
+        curr = next;
+    }
+};
 
 LinkedList::Node* LinkedList::addToFront(int val) {
     Node* newNode = new Node(val);
