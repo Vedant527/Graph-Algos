@@ -129,29 +129,29 @@ out/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/build
 .PHONY : out/fast
 
-src/BFS.o: src/BFS.cpp.o
-.PHONY : src/BFS.o
+src/GraphAgent.o: src/GraphAgent.cpp.o
+.PHONY : src/GraphAgent.o
 
 # target to build an object file
-src/BFS.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/BFS.cpp.o
-.PHONY : src/BFS.cpp.o
+src/GraphAgent.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/GraphAgent.cpp.o
+.PHONY : src/GraphAgent.cpp.o
 
-src/BFS.i: src/BFS.cpp.i
-.PHONY : src/BFS.i
+src/GraphAgent.i: src/GraphAgent.cpp.i
+.PHONY : src/GraphAgent.i
 
 # target to preprocess a source file
-src/BFS.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/BFS.cpp.i
-.PHONY : src/BFS.cpp.i
+src/GraphAgent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/GraphAgent.cpp.i
+.PHONY : src/GraphAgent.cpp.i
 
-src/BFS.s: src/BFS.cpp.s
-.PHONY : src/BFS.s
+src/GraphAgent.s: src/GraphAgent.cpp.s
+.PHONY : src/GraphAgent.s
 
 # target to generate assembly for a file
-src/BFS.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/BFS.cpp.s
-.PHONY : src/BFS.cpp.s
+src/GraphAgent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/out.dir/build.make CMakeFiles/out.dir/src/GraphAgent.cpp.s
+.PHONY : src/GraphAgent.cpp.s
 
 src/LinkedList.o: src/LinkedList.cpp.o
 .PHONY : src/LinkedList.o
@@ -258,9 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... out"
-	@echo "... src/BFS.o"
-	@echo "... src/BFS.i"
-	@echo "... src/BFS.s"
+	@echo "... src/GraphAgent.o"
+	@echo "... src/GraphAgent.i"
+	@echo "... src/GraphAgent.s"
 	@echo "... src/LinkedList.o"
 	@echo "... src/LinkedList.i"
 	@echo "... src/LinkedList.s"
