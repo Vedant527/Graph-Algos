@@ -102,7 +102,7 @@ bool GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[])
     for (int i = 0; i < graph.getNumVertices(); i++) {
         parent[i] = -1;
     }
-    
+
     while (!queue.empty()) {
         int curr = queue.top();
         queue.pop();
@@ -156,5 +156,16 @@ int GraphAgent::fordFulkerson(WeightedGraph graph, int start, int end) {
 }
 
 int GraphAgent::dijkstras(WeightedGraph graph, int start, int end, int parent[]) {
+    int N = graph.getNumVertices();
+    std::set<int> visited;
+    int distance[N];
+    for (int i = 0; i < N; i++) {
+        if (i != start) {
+            distance[i] = INT_MAX;
+        } else {
+            distance[i] = 0;
+        }
+    }
 
+    return -1;
 }
