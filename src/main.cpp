@@ -3,14 +3,14 @@
 #include "GraphAgent.hpp"
 
 int main() {
-    WeightedGraph g = WeightedGraph(3);
+    WeightedGraph g = WeightedGraph(20);
     unsigned seed = time(0);
     srand(seed);
 
     int random_edge_count = rand() % 100;
     for (int i = 0; i < random_edge_count; i++) {
-        int v1 = rand() % 3;
-        int v2 = rand() % 3;
+        int v1 = rand() % 20;
+        int v2 = rand() % 20;
         g.addEdge(v1, v2, rand() % 10);
     }
     g.printGraph();
