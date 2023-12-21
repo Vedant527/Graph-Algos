@@ -17,6 +17,7 @@ class WeightedGraph {
         int getNumEdges() const;
         int getNoEdgeVal() const;
         int* getNeighbors(int vertex);
+        int getEdgeWeight(int start, int end);
 
     private:
         int num_vertices;

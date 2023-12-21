@@ -10,10 +10,11 @@ class GraphAgent {
         GraphAgent();
         ~GraphAgent();
 
-        static int runBfs(WeightedGraph graph, int start, int end, int parent[]);
-        static int runBfs(UnweightedGraph graph, int start, int end, int parent[]);
-        static int runDfs(WeightedGraph graph, int start, int end, int parent[]);
-        static int runDfs(UnweightedGraph graph, int start, int end, int parent[]);
+        static bool runBfs(WeightedGraph graph, int start, int end, int parent[]);
+        static bool runBfs(UnweightedGraph graph, int start, int end, int parent[]);
+        static bool runDfs(WeightedGraph graph, int start, int end, int parent[]);
+        static bool runDfs(UnweightedGraph graph, int start, int end, int parent[]);
+        static int fordFulkerson(WeightedGraph graph, int start, int end);
 };
 
 #endif

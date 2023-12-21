@@ -13,6 +13,11 @@ UnweightedGraph::UnweightedGraph(int num_vertices) : num_vertices(num_vertices),
 UnweightedGraph::~UnweightedGraph() {}
 
 void UnweightedGraph::addEdge(int start, int end) {
+    // blocks self loops
+    if (start == end) {
+        return;
+    }
+    
     if (start >= num_vertices || end >= num_vertices) {
         throw std::invalid_argument("Invalid edge!");
     } else {

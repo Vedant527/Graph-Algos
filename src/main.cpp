@@ -3,14 +3,14 @@
 #include "GraphAgent.hpp"
 
 int main() {
-    WeightedGraph g = WeightedGraph(10);
+    WeightedGraph g = WeightedGraph(3);
     unsigned seed = time(0);
     srand(seed);
 
     int random_edge_count = rand() % 100;
     for (int i = 0; i < random_edge_count; i++) {
-        int v1 = rand() % 10;
-        int v2 = rand() % 10;
+        int v1 = rand() % 3;
+        int v2 = rand() % 3;
         g.addEdge(v1, v2, rand() % 10);
     }
     g.printGraph();
@@ -23,12 +23,14 @@ int main() {
     }
 
     int start = 0;
-    int end = 3;
+    int end = 2;
     int x = b.runBfs(g, start, end, parents1);
     int y = b.runDfs(g, start, end, parents2);
+    int flow = b.fordFulkerson(g, start, end);
+    std::cout << "MAX FLOW: " << flow << std::endl;
 
     if (x == 1) { 
-        std::cout << "BFS found path!" << std::endl;
+        std::cout << "BFS found path! ";
         int curr = end;
         std::cout << "path: ";
         while (curr != -1) {
@@ -41,7 +43,7 @@ int main() {
     }
 
     if (y == 1) { 
-        std::cout << "DFS found path!" << std::endl;
+        std::cout << "DFS found path! ";
         int curr = end;
         std::cout << "path: ";
         while (curr != -1) {

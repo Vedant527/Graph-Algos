@@ -9,7 +9,7 @@
 GraphAgent::GraphAgent() {};
 GraphAgent::~GraphAgent() {};
 
-int GraphAgent::runBfs(WeightedGraph graph, int start, int end, int parent[]) {
+bool GraphAgent::runBfs(WeightedGraph graph, int start, int end, int parent[]) {
     std::queue<int> queue;
     std::set<int> visited;
 
@@ -22,7 +22,7 @@ int GraphAgent::runBfs(WeightedGraph graph, int start, int end, int parent[]) {
         queue.pop();
 
         if (curr == end) {
-            return 1;
+            return true;
         }
         int* neighbors = graph.getNeighbors(curr);
         for (int n = 0; n < graph.getNumVertices(); n++) {
@@ -33,10 +33,10 @@ int GraphAgent::runBfs(WeightedGraph graph, int start, int end, int parent[]) {
         }
     }
 
-    return 0;
+    return false;
 }
 
-int GraphAgent::runBfs(UnweightedGraph graph, int start, int end, int parent[]) {
+bool GraphAgent::runBfs(UnweightedGraph graph, int start, int end, int parent[]) {
     std::queue<int> queue;
     std::set<int> visited;
 
@@ -49,7 +49,7 @@ int GraphAgent::runBfs(UnweightedGraph graph, int start, int end, int parent[]) 
         queue.pop();
 
         if (curr == end) {
-            return 1;
+            return true;
         }
         LinkedList* neighbors = graph.getNeighbors(curr);
         for (int n = 0; n < graph.getNumVertices(); n++) {
@@ -60,10 +60,10 @@ int GraphAgent::runBfs(UnweightedGraph graph, int start, int end, int parent[]) 
         }
     }
 
-    return 0;
+    return false;
 }
 
-int GraphAgent::runDfs(WeightedGraph graph, int start, int end, int parent[]) {
+bool GraphAgent::runDfs(WeightedGraph graph, int start, int end, int parent[]) {
     std::stack<int> queue;
     std::set<int> visited;
 
@@ -76,7 +76,7 @@ int GraphAgent::runDfs(WeightedGraph graph, int start, int end, int parent[]) {
         visited.insert(curr);
 
         if (curr == end) {
-            return 1;
+            return true;
         }
         int* neighbors = graph.getNeighbors(curr);
         for (int n = 0; n < graph.getNumVertices(); n++) {
@@ -87,10 +87,10 @@ int GraphAgent::runDfs(WeightedGraph graph, int start, int end, int parent[]) {
         }
     }
 
-    return 0;
+    return false;
 }
 
-int GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[]) {
+bool GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[]) {
     std::stack<int> queue;
     std::set<int> visited;
 
@@ -103,7 +103,7 @@ int GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[]) 
         visited.insert(curr);
 
         if (curr == end) {
-            return 1;
+            return true;
         }
         LinkedList* neighbors = graph.getNeighbors(curr);
         for (int n = 0; n < graph.getNumVertices(); n++) {
@@ -114,5 +114,37 @@ int GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[]) 
         }
     }
 
-    return 0;
+    return false;
+}
+
+int GraphAgent::fordFulkerson(WeightedGraph graph, int start, int end) {
+    int N = graph.getNumVertices();
+    WeightedGraph residual(N);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            residual.addEdge(i, j, graph.getEdgeWeight(i, j));
+        }
+    }
+
+    int max_flow = 0;
+    int parent[graph.getNumVertices()];
+
+    int u, v;
+    while (runBfs(residual, start, end, parent)) {
+        int flow = INT_MAX;
+        for (v = end; v != start; v = parent[v]) {
+            u = parent[v];
+            flow = std::min(flow, residual.getEdgeWeight(u, v));
+        }
+
+        for (v = end; v != start; v = parent[v]) {
+            u = parent[v];
+            residual.addEdge(u, v, residual.getEdgeWeight(u, v) - flow);
+            residual.addEdge(v, u, residual.getEdgeWeight(u, v) + flow);
+        }
+
+        max_flow += flow;
+    }
+
+    return max_flow;
 }

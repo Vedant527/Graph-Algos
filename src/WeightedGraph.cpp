@@ -2,7 +2,8 @@
 #include <iostream>
 #include <vector>
 
-WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0), no_edge_val(std::numeric_limits<int>::min()) {
+// original no_edge_val = std::numeric_limits<int>::min()
+WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num_edges(0), no_edge_val(0) {
     adj_matrix = new int*[num_vertices];
 
     for (int i = 0; i < num_vertices; i++) {
@@ -16,6 +17,11 @@ WeightedGraph::WeightedGraph(int num_vertices) : num_vertices(num_vertices), num
 WeightedGraph::~WeightedGraph() {}
 
 void WeightedGraph::addEdge(int start, int end, int edge_weight) {
+    // blocks self loops
+    if (start == end) {
+        return;
+    }
+    
     if (start >= num_vertices || end >= num_vertices) {
         throw std::invalid_argument("Invalid edge!");
     } else {
@@ -87,4 +93,8 @@ int WeightedGraph::getNoEdgeVal() const {
 
 int* WeightedGraph::getNeighbors(int vertex) {
     return adj_matrix[vertex];
+}
+
+int WeightedGraph::getEdgeWeight(int start, int end) {
+    return adj_matrix[start][end];
 }
