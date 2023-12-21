@@ -15,6 +15,7 @@ class GraphAgent {
         static bool runDfs(WeightedGraph graph, int start, int end, int parent[]);
         static bool runDfs(UnweightedGraph graph, int start, int end, int parent[]);
         static int fordFulkerson(WeightedGraph graph, int start, int end);
+        static int dijkstras(WeightedGraph graph, int start, int end, int parent[]);
 };
 
 #endif

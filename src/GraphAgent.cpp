@@ -41,7 +41,9 @@ bool GraphAgent::runBfs(UnweightedGraph graph, int start, int end, int parent[])
     std::set<int> visited;
 
     queue.push(start);
-    parent[start] = -1;
+    for (int i = 0; i < graph.getNumVertices(); i++) {
+        parent[i] = -1;
+    }
 
     while(!queue.empty()) {
         int curr = queue.front();
@@ -68,7 +70,9 @@ bool GraphAgent::runDfs(WeightedGraph graph, int start, int end, int parent[]) {
     std::set<int> visited;
 
     queue.push(start);
-    parent[start] = -1;
+    for (int i = 0; i < graph.getNumVertices(); i++) {
+        parent[i] = -1;
+    }
 
     while (!queue.empty()) {
         int curr = queue.top();
@@ -95,8 +99,10 @@ bool GraphAgent::runDfs(UnweightedGraph graph, int start, int end, int parent[])
     std::set<int> visited;
 
     queue.push(start);
-    parent[start] = -1;
-
+    for (int i = 0; i < graph.getNumVertices(); i++) {
+        parent[i] = -1;
+    }
+    
     while (!queue.empty()) {
         int curr = queue.top();
         queue.pop();
@@ -147,4 +153,8 @@ int GraphAgent::fordFulkerson(WeightedGraph graph, int start, int end) {
     }
 
     return max_flow;
+}
+
+int GraphAgent::dijkstras(WeightedGraph graph, int start, int end, int parent[]) {
+
 }

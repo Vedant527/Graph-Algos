@@ -17,10 +17,6 @@ int main() {
     GraphAgent b;
     int parents1[g.getNumVertices()];
     int parents2[g.getNumVertices()];
-    for (int i = 0; i < g.getNumVertices(); i++) {
-        parents1[i] = -1;
-        parents2[i] = -1;
-    }
 
     int start = 0;
     int end = 2;
