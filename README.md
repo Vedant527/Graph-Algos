@@ -15,6 +15,8 @@ In the future it will include support for: DFS, Ford Fulkerson, Min Cut, and mor
 - Representation of weighted graphs using an adjacency matrix.
 - Breadth-First Search (BFS) algorithm for weighted graphs.
 - Depth-First Search (DFS) algorithm for weighted graphs.
+- Max Flow (Ford Fulkerson) algorithm.
+
 
 ## How to Use
 
