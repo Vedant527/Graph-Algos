@@ -16,7 +16,7 @@ In the future it will include support for: DFS, Ford Fulkerson, Min Cut, and mor
 - Breadth-First Search (BFS) algorithm for weighted graphs.
 - Depth-First Search (DFS) algorithm for weighted graphs.
 - Max Flow (Ford Fulkerson) algorithm.
-
+- Max Flow (Edmonds Karp) algorithm.
 
 ## How to Use
 
