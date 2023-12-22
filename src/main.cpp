@@ -3,17 +3,17 @@
 #include "GraphAgent.hpp"
 
 int main() {
-    WeightedGraph g = WeightedGraph(20);
+    WeightedGraph g = WeightedGraph(1000);
     unsigned seed = time(0);
     srand(seed);
 
-    int random_edge_count = rand() % 100;
+    int random_edge_count = rand() % 10000;
     for (int i = 0; i < random_edge_count; i++) {
         int v1 = rand() % 20;
         int v2 = rand() % 20;
         g.addEdge(v1, v2, rand() % 10);
     }
-    g.printGraph();
+    // g.printGraph();
     GraphAgent b;
     int parents1[g.getNumVertices()];
     int parents2[g.getNumVertices()];
@@ -22,8 +22,10 @@ int main() {
     int end = 2;
     int x = b.runBfs(g, start, end, parents1);
     int y = b.runDfs(g, start, end, parents2);
-    int flow = b.fordFulkerson(g, start, end);
-    std::cout << "MAX FLOW: " << flow << std::endl;
+    int flow1 = b.fordFulkerson(g, start, end);
+    int flow2 = b.edmondsKarp(g, start, end);
+
+    std::cout << "MAX FLOW FF: " << flow1 << " MAX FLOW EK: " << flow2 << std::endl;
 
     if (x == 1) { 
         std::cout << "BFS found path! ";

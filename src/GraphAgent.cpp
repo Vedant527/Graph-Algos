@@ -136,6 +136,38 @@ int GraphAgent::fordFulkerson(WeightedGraph graph, int start, int end) {
     int parent[graph.getNumVertices()];
 
     int u, v;
+    while (runDfs(residual, start, end, parent)) {
+        int flow = INT_MAX;
+        for (v = end; v != start; v = parent[v]) {
+            u = parent[v];
+            flow = std::min(flow, residual.getEdgeWeight(u, v));
+        }
+
+        for (v = end; v != start; v = parent[v]) {
+            u = parent[v];
+            residual.addEdge(u, v, residual.getEdgeWeight(u, v) - flow);
+            residual.addEdge(v, u, residual.getEdgeWeight(u, v) + flow);
+        }
+
+        max_flow += flow;
+    }
+
+    return max_flow;
+}
+
+int GraphAgent::edmondsKarp(WeightedGraph graph, int start, int end) {
+    int N = graph.getNumVertices();
+    WeightedGraph residual(N);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            residual.addEdge(i, j, graph.getEdgeWeight(i, j));
+        }
+    }
+
+    int max_flow = 0;
+    int parent[graph.getNumVertices()];
+
+    int u, v;
     while (runBfs(residual, start, end, parent)) {
         int flow = INT_MAX;
         for (v = end; v != start; v = parent[v]) {
